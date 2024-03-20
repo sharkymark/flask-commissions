@@ -1,0 +1,27 @@
+{
+    "name": "Flask Development",
+    "build": {
+      "dockerfile": "../Dockerfile",
+      "context": ".."
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-python.python"
+        ],
+        "settings": { 
+          "terminal.integrated.shell.linux": "/bin/bash"
+        }  
+      }
+    },
+    "postCreateCommand": "",
+    "containerEnv": {
+      "FLASK_APP": "app.py",
+      "FLASK_ENV": "development",
+      "FLASK_DEBUG": "1",
+      "TEMPLATES_AUTO_RELOAD": "True"
+    },
+    "forwardPorts": [5001]
+    }
+
+  
