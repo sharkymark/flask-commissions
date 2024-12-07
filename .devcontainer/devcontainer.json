@@ -13,7 +13,6 @@
         }  
       }
     },
-    "postStartCommand": "flask run &",
     "containerEnv": {
       "FLASK_APP": "app.py",
       "FLASK_ENV": "development",

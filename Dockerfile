@@ -13,16 +13,4 @@ RUN apt-get update && apt-get install -y procps curl net-tools htop ssh git
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 5001 available to the world outside this container
-# Default 5000 conflicts with AirPlay on my mac
-EXPOSE 5001
-
-# Define environment variable
-ENV FLASK_APP=app.py
-ENV FLASK_RUN_HOST=0.0.0.0
-ENV FLASK_ENV=development
-ENV FLASK_RUN_PORT=5001
-
-# Run Python app.py when the container launches
-CMD ["flask", "run"]
 
