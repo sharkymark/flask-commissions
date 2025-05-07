@@ -19,5 +19,5 @@
 		"TEMPLATES_AUTO_RELOAD": "True"
 	},
 
-	"postStartCommand": ".devcontainer/init.sh"
+	"postStartCommand": ""
 }
