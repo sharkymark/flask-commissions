@@ -8,9 +8,14 @@ I'm using a dev container so I don't have to install Python and Flask on my Mac.
 
 ## Coder env builder
 
-This dev container has been modified to work in Coder's `envbuilder` framework. To-Do: It appears starting flask, either as `CMD` at the end of the Dockerfile, or as `postCreateCommand` in the `devcontainer.json` is not working.
+This dev container has been modified to work in Coder's `envbuilder` framework. Specifically, the `postStartCommand` in the `devcontainer.json` file has been modified to run the Flask app. The `postStartCommand` is a command that runs after the container is started and the dev container is built. Otherwise, the Coder workspace UI hangs and the workspace becomes unhealthy.
+The `postStartCommand` is run in the background and the output is redirected to a log file with no hangup protection. The command is as follows:
 
-Therefore, manually start the flask app with this command run within the repo directory.
+```json
+"postStartCommand": "nohup flask run > /tmp/flask.log 2>&1 &"
+```
+
+If the process ends and you want to start the flask app with this command run within the repo directory or use the command in `postStartCommand`.
 
 ```bash
 flask run --host=0.0.0.0
@@ -18,14 +23,14 @@ flask run --host=0.0.0.0
 
 ## Accessing the Flask app
 
-If running locally or in `envbuilder`, open a web browser and enter `localhost:5001` to see the Flask app
+If running locally or in `envbuilder`, open a web browser and enter `localhost:5000` to see the Flask app
 
 ## Resources
 
 [Coder's envbuilder OSS repo](https://github.com/coder/envbuilder)
 
+[Coder docs in dev containers](https://coder.com/docs/admin/templates/managing-templates/devcontainers/add-devcontainer#dev-container-lifecycle-scripts)
+
 [Flask](https://flask.palletsprojects.com/)
 
 [Dev Container specification](https://containers.dev/implementors/spec/)
-
-[Install Coder's Cloud Development Environment OSS](https://github.com/coder/coder)
