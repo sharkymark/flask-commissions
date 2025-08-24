@@ -19,10 +19,7 @@
 		"TEMPLATES_AUTO_RELOAD": "True"
 	},
 	"features": {
-		"ghcr.io/coder/devcontainer-features/code-server:1": {
-		"port": 13338,
-		"host": "0.0.0.0"
-		}
+    "ghcr.io/coder/devcontainer-features/code-server:1": {}
 	},
 	"forwardPorts": [5000],
 	"postStartCommand": "nohup flask run > /tmp/flask.log 2>&1 &"
