@@ -18,9 +18,6 @@
 		"FLASK_DEBUG": "1",
 		"TEMPLATES_AUTO_RELOAD": "True"
 	},
-	"features": {
-    "ghcr.io/coder/devcontainer-features/code-server:1": {}
-	},
 	"forwardPorts": [5000],
 	"postStartCommand": "nohup flask run > /tmp/flask.log 2>&1 &"
 }
